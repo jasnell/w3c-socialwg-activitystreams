@@ -1,13 +1,13 @@
-@prefix : <http://www.w3.org/ns/activitystreams#> .
-@prefix as: <http://www.w3.org/ns/activitystreams#> .
+@prefix : <https://www.w3.org/ns/activitystreams#> .
+@prefix as: <https://www.w3.org/ns/activitystreams#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.w3.org/ns/activitystreams> .
+@base <https://www.w3.org/ns/activitystreams> .
 
-<http://www.w3.org/ns/activitystreams#> a owl:Ontology ;
+<https://www.w3.org/ns/activitystreams#> a owl:Ontology ;
   rdfs:comment "Extended Activity Streams 2.0 Vocabulary"@en ;
   rdfs:label "Activity Streams 2.0"@en ;
   owl:imports <http://www.w3.org/ns/prov#> .
