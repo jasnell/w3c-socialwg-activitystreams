@@ -470,16 +470,6 @@ as:hreflang a owl:DatatypeProperty ,
   rdfs:range xsd:language ;
   rdfs:domain as:Link .
 
-as:id a owl:DatatypeProperty ,
-        owl:FunctionalProperty,
-        owl:DeprecatedProperty ;
-  rdfs:label "id"@en ;
-  rdfs:range xsd:anyURI ;
-  rdfs:domain [
-    a owl:Class ;
-    owl:unionOf (as:Link as:Object)
-  ] .
-
 as:latitude a owl:DatatypeProperty ,
       owl:FunctionalProperty ;
   rdfs:label "latitude"@en ;
