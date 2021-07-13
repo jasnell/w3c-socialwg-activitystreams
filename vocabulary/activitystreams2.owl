@@ -32,29 +32,17 @@ as:actor a owl:ObjectProperty ;
   rdfs:domain as:Activity ;
   rdfs:comment "Subproperty of as:attributedTo that identifies the primary actor"@en ;
   rdfs:subPropertyOf as:attributedTo ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf (as:Object as:Link)
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:attributedTo a owl:ObjectProperty ;
   rdfs:label "attributedTo"@en;
   rdfs:comment "Identifies an entity to which an object is attributed"@en;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf (as:Object as:Link)
-  ] ;
-  rdfs:domain [
-    a owl:Class ;
-    owl:unionOf (as:Object as:Link)
-  ] ; .
+  rdfs:range _:LinkOrObject ;
+  rdfs:domain _:LinkOrObject ; .
 
 as:attachment a owl:ObjectProperty ;
   rdfs:label "attachment"@en ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Link as:Object )
-  ] ;
+  rdfs:range _:LinkOrObject ;
   rdfs:domain as:Object ;
   owl:equivalentProperty as:attachments .
 
@@ -62,10 +50,7 @@ as:attachments a owl:ObjectProperty,
          owl:DeprecatedProperty ;
   rdfs:label "attachments"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:author a owl:ObjectProperty,
             owl:DeprecatedProperty ;
@@ -73,93 +58,60 @@ as:author a owl:ObjectProperty,
   rdfs:comment "Identifies the author of an object. Deprecated. Use as:attributedTo instead"@en;
   rdfs:domain as:Object ;
   rdfs:subPropertyOf as:attributedTo ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:bcc a owl:ObjectProperty ;
   rdfs:label "bcc"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:bto a owl:ObjectProperty ;
   rdfs:label "bto"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:cc a owl:ObjectProperty ;
   rdfs:label "cc"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:context a owl:ObjectProperty ;
   rdfs:label "context"@en ;
   rdfs:comment "Specifies the context within which an object exists or an activity was performed"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-      owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:current a owl:FunctionalProperty ,
              owl:ObjectProperty ;
   rdfs:label "current"@en ;
   rdfs:domain as:Collection ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:CollectionPage as:Link )
-  ] .
+  rdfs:range _:LinkOrCollectionPage .
 
 as:first a owl:FunctionalProperty ,
            owl:ObjectProperty ;
   rdfs:label "first"@en ;
   rdfs:domain as:Collection ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:CollectionPage as:Link )
-  ] .
+  rdfs:range _:LinkOrCollectionPage .
 
 as:generator a owl:ObjectProperty ;
   rdfs:label "generator"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:icon a owl:ObjectProperty ;
   rdfs:label "icon"@en ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Image as:Link )
-  ] ;
+  rdfs:range _:LinkOrImage ;
   rdfs:domain as:Object .
 
 as:image a owl:ObjectProperty ;
   rdfs:label "image"@en ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Image as:Link )
-  ] ;
+  rdfs:range _:LinkOrImage ;
   rdfs:domain as:Object .
 
 as:inReplyTo a owl:ObjectProperty ;
   rdfs:label "inReplyTo"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:items a owl:ObjectProperty ;
   rdfs:label "items"@en ;
@@ -167,10 +119,7 @@ as:items a owl:ObjectProperty ;
   rdfs:range [
     a owl:Class ;
     owl:unionOf (
-      [
-        a owl:Class ;
-        owl:unionOf ( as:Object as:Link )
-      ]
+      _:LinkOrObject
       as:OrderedItems
     )
   ] .
@@ -179,27 +128,18 @@ as:last a owl:FunctionalProperty ,
           owl:ObjectProperty ;
   rdfs:label "last"@en ;
   rdfs:domain as:Collection ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:CollectionPage as:Link )
-  ] .
+  rdfs:range _:LinkOrCollectionPage .
 
 as:location a owl:ObjectProperty ;
   rdfs:label "location"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:next a owl:FunctionalProperty ,
           owl:ObjectProperty ;
   rdfs:label "next"@en ;
   rdfs:domain as:CollectionPage ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:CollectionPage as:Link )
-  ] .
+  rdfs:range _:LinkOrCollectionPage .
 
 as:object a owl:ObjectProperty ;
   rdfs:label "object"@en ;
@@ -207,57 +147,36 @@ as:object a owl:ObjectProperty ;
     a owl:Class ;
       owl:unionOf ( as:Activity as:Relationship )
   ];
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:oneOf a owl:ObjectProperty ;
   rdfs:label "oneOf"@en ;
   rdfs:comment "Describes a possible exclusive answer or option for a question."@en ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] ;
+  rdfs:range _:LinkOrObject ;
   rdfs:domain as:Question .
 
 as:anyOf a owl:ObjectProperty ;
   rdfs:label "oneOf"@en ;
   rdfs:comment "Describes a possible inclusive answer or option for a question."@en ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] ;
+  rdfs:range _:LinkOrObject ;
   rdfs:domain as:Question .
 
 as:prev a owl:FunctionalProperty ,
           owl:ObjectProperty ;
   rdfs:label "prev"@en ;
   rdfs:domain as:CollectionPage ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:CollectionPage as:Link )
-  ] .
+  rdfs:range _:LinkOrCollectionPage .
 
 as:preview a owl:ObjectProperty ;
   rdfs:label "preview"@en ;
-  rdfs:domain [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:domain _:LinkOrObject ;
+  rdfs:range _:LinkOrObject .
 
 as:provider a owl:ObjectProperty,
               owl:DeprecatedProperty ;
   rdfs:label "provider"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:replies a owl:ObjectProperty ;
   rdfs:label "replies"@en ;
@@ -267,18 +186,12 @@ as:replies a owl:ObjectProperty ;
 as:result a owl:ObjectProperty ;
   rdfs:label "result"@en ;
   rdfs:domain as:Activity ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:audience a owl:ObjectProperty ;
   rdfs:label "audience"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:partOf a owl:FunctionalProperty ,
             owl:ObjectProperty ;
@@ -292,54 +205,36 @@ as:partOf a owl:FunctionalProperty ,
 as:tag a owl:ObjectProperty ;
   rdfs:label "tag"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:tags a owl:ObjectProperty,
         owl:DeprecatedProperty ;
   rdfs:label "tags"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] ;
+  rdfs:range _:LinkOrObject ;
   owl:equivalentProperty as:tag ;.
 
 as:target a owl:ObjectProperty ;
   rdfs:label "target"@en ;
   rdfs:domain as:Activity ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:origin a owl:ObjectProperty ;
   rdfs:label "origin"@en ;
   rdfs:comment "For certain activities, specifies the entity from which the action is directed."@en ;
   rdfs:domain as:Activity ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:instrument a owl:ObjectProperty ;
   rdfs:label "instrument"@en ;
   rdfs:comment "Indentifies an object used (or to be used) to complete an activity"@en ;
   rdfs:domain as:Activity ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:to a owl:ObjectProperty ;
   rdfs:label "to"@en ;
   rdfs:domain as:Object ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link )
-  ] .
+  rdfs:range _:LinkOrObject .
 
 as:url a owl:ObjectProperty ;
   rdfs:label "url"@en ;
@@ -356,10 +251,7 @@ as:subject a owl:FunctionalProperty,
   rdfs:comment "On a Relationship object, identifies the subject. e.g. when saying \"John is connected to Sally\", 'subject' refers to 'John'"@en ;
   rdfs:domain as:Relationship ;
   rdfs:subPropertyOf rdf:subject ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( as:Link as:Object )
-  ].
+  rdfs:range _:LinkOrObject.
 
 as:relationship a owl:ObjectProperty;
   rdfs:label "relationship"@en;
@@ -411,23 +303,14 @@ as:altitude a owl:DatatypeProperty ,
 as:content a owl:DatatypeProperty ;
   rdfs:label "content"@en ;
   rdfs:comment "The content of the object."@en ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( rdf:langString xsd:string )
-  ] ;
+  rdfs:range _:StringOrLangString ;
   rdfs:domain as:Object .
 
 as:name a owl:DatatypeProperty ;
   rdfs:label "name"@en ;
   rdfs:name "The default, plain-text display name of the object or link."@en ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( rdf:langString xsd:string )
-  ] ;
-  rdfs:domain [
-    a owl:Class ;
-    owl:unionOf ( as:Object as:Link)
-  ].
+  rdfs:range _:StringOrLangString ;
+  rdfs:domain _:LinkOrObject.
 
 as:downstreamDuplicates a owl:DatatypeProperty,
           owl:DeprecatedProperty ;
@@ -475,10 +358,7 @@ as:id a owl:DatatypeProperty ,
         owl:DeprecatedProperty ;
   rdfs:label "id"@en ;
   rdfs:range xsd:anyURI ;
-  rdfs:domain [
-    a owl:Class ;
-    owl:unionOf (as:Link as:Object)
-  ] .
+  rdfs:domain _:LinkOrObject .
 
 as:latitude a owl:DatatypeProperty ,
       owl:FunctionalProperty ;
@@ -499,10 +379,7 @@ as:mediaType a owl:DatatypeProperty ,
   rdfs:label "mediaType"@en ;
   rdfs:comment "The MIME Media Type"@en ;
   rdfs:range xsd:string ;
-  rdfs:domain [
-    a owl:Class ;
-    owl:unionOf (as:Link as:Object)
-  ] .
+  rdfs:domain _:LinkOrObject .
 
 as:objectType a owl:DatatypeProperty ,
         owl:FunctionalProperty,
@@ -568,10 +445,7 @@ as:startTime a owl:DatatypeProperty ,
 as:summary a owl:DatatypeProperty ;
   rdfs:label "summary"@en ;
   rdfs:comment "A short summary of the object"@en ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf ( rdf:langString xsd:string )
-  ] ;
+  rdfs:range _:StringOrLangString ;
   rdfs:domain as:Object .
 
 as:totalItems a owl:DatatypeProperty ,
@@ -850,10 +724,7 @@ as:OrderedCollection a owl:Class ;
             as:OrderedItems
             [
               a owl:Class ;
-              owl:complementOf [
-                a owl:Class ;
-                owl:unionOf ( as:Object as:Link )
-              ]
+              owl:complementOf _:LinkOrObject
             ]
           )
         ]
@@ -871,10 +742,7 @@ as:OrderedItems a owl:Class ;
       [
         a owl:Restriction;
         owl:onProperty rdf:first ;
-        owl:allValuesFrom [
-          a owl:Class ;
-          owl:unionOf ( as:Object as:Link )
-        ]
+        owl:allValuesFrom _:LinkOrObject ;
       ]
       [
         a owl:Restriction;
@@ -960,3 +828,29 @@ as:Video a owl:Class ;
   rdfs:subClassOf as:Document .
 
 rdf:nil a as:OrderedItems .
+
+#################################################################
+#
+#    Reused type unions
+#
+#################################################################
+
+_:LinkOrObject
+  a owl:Class ;
+  owl:unionOf ( as:Object as:Link ) ;
+.
+
+_:LinkOrCollectionPage
+  a owl:Class ;
+  owl:unionOf ( as:CollectionPage as:Link ) ;
+.
+
+_:LinkOrImage
+  a owl:Class ;
+  owl:unionOf ( as:Image as:Link ) ;
+.
+
+_:StringOrLangString
+  a owl:Class ;
+  owl:unionOf ( rdf:langString xsd:string ) ;
+.
